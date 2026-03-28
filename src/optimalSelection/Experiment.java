@@ -1,10 +1,21 @@
 package optimalSelection;
 
+/**
+ * Group 4 Ian Shoell, Korbin Ordiway, Kathleen Monahan, Marcos Elgueta
+ * CS2430-002 Project 3: Optimal Selection
+ * 
+ * Creates the Experiment object to be used in other classes
+ * as well as being able to initialize a hard coded set of experiments
+ * with their weight and ratings
+ * 
+ * @author Korbin Ordiway
+ */
+
 public class Experiment {
 
-	String name;
-	int weight;
-	int rating;
+	String name; // name of the experiment
+	int weight; // weight of the experiment
+	int rating; // rating of the experiment
 	
 	public Experiment(String name, int weight, int rating) {
 		this.name = name;
@@ -13,6 +24,11 @@ public class Experiment {
 	}
 	
 	
+	/**
+	 * Stores hard coded experiment information to be called for other classes
+	 * 
+	 * @return hard coded array of Experiments
+	 */
 	public static Experiment[] getExperiments() {
 		return new Experiment[] {
 				new Experiment ("Cloud Patterns", 36, 5),
