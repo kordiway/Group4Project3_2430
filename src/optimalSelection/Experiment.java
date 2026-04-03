@@ -13,6 +13,9 @@ package optimalSelection;
 
 public class Experiment {
 
+	
+
+
 	String name; // name of the experiment
 	int weight; // weight of the experiment
 	int rating; // rating of the experiment
@@ -23,6 +26,10 @@ public class Experiment {
 		this.rating = rating;
 	}
 	
+	@Override
+	public String toString() {
+	    return name + " (" + weight + " kg, rating " + rating + ")";
+	}
 	
 	/**
 	 * Stores hard coded experiment information to be called for other classes
