@@ -1,5 +1,7 @@
 package optimalSelection;
 
+import java.util.ArrayList;
+
 /**
  * Test client for BruteForce and ThreeGreedy classes Output results and
  * summarizes with analysis to accompany final report
@@ -10,30 +12,40 @@ public class TestDriver {
 
 	public static void main(String[] args) {
 
-		Experiment[] experiments = Experiment.getExperiments();
-
 		System.out.println(" ============ Test Greedy Strategies ============ ");
-
+		System.out.println();
 		System.out.println("Test Highest Rating First");
-		// SubsetResult result1 = ThreeGreedy.HighestRating(experiments);
-		// need to either add a toString for subset or use result1.totalWeight &&
-		// result1.totalRating
+		System.out.println();
+		ThreeGreedy greedy = new ThreeGreedy();
+		SubsetResult results = greedy.highestRating();
+		System.out.println(results.toString());
+		
+		System.out.println("----------------------------------------");
 
 		System.out.println("Test Lightest First");
-		// SubsetResult result2 = ThreeGreedy.Lightest(experiments);
-		// need to either add a toString for subset or use result2.totalWeight &&
-		// result2.totalRating
+		System.out.println();
+		greedy = new ThreeGreedy();
+		 results = greedy.lightestWeight();
+		System.out.println(results.toString());
+	
+		System.out.println("----------------------------------------");
 
 		System.out.println("Test Rating To Weight Ratio First");
-		// SubsetResult result3 = ThreeGreedy.RatingToWeight(experiments);
-		// need to either add a toString for subset or use result3.totalWeight &&
-		// result3.totalRating
+		System.out.println();
+		greedy = new ThreeGreedy();
+		results = greedy.weightToRatingRatio();
+		System.out.println(results.toString());
+	
 
 		System.out.println(" ============ Test Brute Force ============ ");
 
-		// BruteForce(experiments);
-		// will return top 3, either put into an array or print print totalWeight &&
-		// totalRating per result
+		ArrayList<SubsetResult> result = new BruteForce().findOptimal();
+		int x =1; 
+		for (SubsetResult s: result) {
+			System.out.println("Result " + x + "\n" + s.toString());
+			x++; 
+			
+		}
 
 		System.out.println(" ============ Summary ============ ");
 
