@@ -29,7 +29,7 @@ public class ThreeGreedyTest {
 	@Test
 	void testweightToRatingRatioDoesNotExceedMaxWeight() {
 		ThreeGreedy greedy = new ThreeGreedy();
-		SubsetResult results = greedy.weightToRatingRatio();
+		SubsetResult results = greedy.ratingToWeightRatio();
 		assertTrue(results.totalWeight <= 700, "Total weight should not exceed 700");
 	}
 
@@ -50,7 +50,7 @@ public class ThreeGreedyTest {
 	@Test
 	void testWeightToRatingRatioReturnsSomething() {
 		ThreeGreedy greedy = new ThreeGreedy();
-		SubsetResult result = greedy.weightToRatingRatio();
+		SubsetResult result = greedy.ratingToWeightRatio();
 		assertTrue(result.selectedExperiments.size() > 0, "Should select at least one experiment");
 	}
 
@@ -59,6 +59,6 @@ public class ThreeGreedyTest {
 		int optimalRating = new BruteForce().findOptimal().get(0).totalRating;
 		assertTrue(optimalRating >= new ThreeGreedy().highestRating().totalRating);
 		assertTrue(optimalRating >= new ThreeGreedy().lightestWeight().totalRating);
-		assertTrue(optimalRating >= new ThreeGreedy().weightToRatingRatio().totalRating);
+		assertTrue(optimalRating >= new ThreeGreedy().ratingToWeightRatio().totalRating);
 	}
 }

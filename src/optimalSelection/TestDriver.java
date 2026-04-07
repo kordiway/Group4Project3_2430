@@ -33,7 +33,7 @@ public class TestDriver {
 		System.out.println("Test Rating To Weight Ratio First");
 		System.out.println();
 		greedy = new ThreeGreedy();
-		results = greedy.weightToRatingRatio();
+		results = greedy.ratingToWeightRatio();
 		System.out.println(results.toString());
 	
 
