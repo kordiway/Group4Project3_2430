@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class SubsetResult {
 
+
+
 	ArrayList<Experiment> selectedExperiments; //Array list to hold the experiments in the subset
 	int totalWeight; //Total weight of all experiments in subset
 	int totalRating; //Total Rating of all experiments in subset
@@ -24,4 +26,18 @@ public class SubsetResult {
 		this.totalRating = totalRating;
 	} 
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(); 
+		sb.append("Selected Experiments: \n"); 
+		for (Experiment e: selectedExperiments) {
+			sb.append(e).append("\n"); 
+		}
+		sb.append("\n"); 
+		sb.append("Total Weight: ").append(totalWeight).append(" kg \n");
+		sb.append("Total Rating: ").append(totalRating);
+		sb.append("\n"); 
+
+		return sb.toString(); 
+	}
 }

@@ -3,6 +3,7 @@ package optimalSelection;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 /**
  * Group 4 Ian Shoell, Korbin Ordiway, Kathleen Monahan, Marcos Elgueta
  * CS2430-002 Project 3: Optimal Selection
