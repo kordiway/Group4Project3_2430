@@ -46,7 +46,8 @@ public class BruteForce {
 			//Checks if totalWeight of current subset is within required weight range
 			if(totalWeight <= MAX_WEIGHT) {
 				topSubsets.add(new SubsetResult(selectedExperiments, totalWeight, totalRating));
-				topSubsets.sort((a, b) -> b.totalRating - a.totalRating); //Subtracts a from b, if positive b goes up, sorting highest rating at index 0 and lowest at index 3
+				//Subtracts a from b, if positive b goes up, sorting highest rating at index 0 and lowest at index 3
+				topSubsets.sort((a, b) -> b.totalRating - a.totalRating); 
 				
 				//checks if 4th item is contained after sorting to delete smallest rating
 				if(topSubsets.size() > 3) {
