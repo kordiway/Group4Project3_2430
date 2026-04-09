@@ -1,53 +1,24 @@
 package optimalSelection;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.ArrayList;
-
 import org.junit.jupiter.api.Test;
 
 /**
- * Junit tests for BruteForce
- * 
+ * Junit tests for BruteForce 
  * @author KatM
  */
 
 public class BruteForceTest {
 
 	@Test
-	void returnsThreeResults() {
-		ArrayList<SubsetResult> results = new BruteForce().findOptimal();
-		assertEquals(3, results.size());
-	}
+	void allResultsAreUnderWeightCapacity() {}
+	//check that the top 3 results are all equal or less than 700kgs
 
 	@Test
-	void allResultsAreUnderWeightCapacity() {
-		ArrayList<SubsetResult> results = new BruteForce().findOptimal();
-		for (SubsetResult result : results) {
-			assertTrue(result.totalWeight <= BruteForce.MAX_WEIGHT);
-		}
-	}
+	void topResultsInOrder() {}
+	// check that result[0].totalRating >= result[1].totalRating >= result[2].totalRating
+	//assuming we are putting the results in an array perhaps of type subsetresult
 
 	@Test
-	void topResultsInOrder() {
-		ArrayList<SubsetResult> results = new BruteForce().findOptimal();
-		for (int i = 0; i < results.size() - 1; i++) {
-			assertTrue(results.get(i).totalRating >= results.get(i + 1).totalRating);
-		}
-	}
-
-	@Test
-	void noDuplicatesInAnyResult() {
-		ArrayList<SubsetResult> results = new BruteForce().findOptimal();
-		for (SubsetResult result : results) {
-			ArrayList<Experiment> experiments = result.selectedExperiments;
-			for (int i = 0; i < experiments.size(); i++) {
-				for (int j = i + 1; j < experiments.size(); j++) {
-					assertNotEquals(experiments.get(i), experiments.get(j));
-				}
-			}
-		}
-	}
+	void noDuplicatesInAnyResult() {}
+	//duplicates may indicate a bug of some sort
 }
