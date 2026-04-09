@@ -58,7 +58,7 @@ public class TestDriver {
 			rating[i] = experiment[i].rating;
 		}
 
-		System.out.println(DynamicProgramming.knapsack(700, rating, weight));
+		System.out.println(DynamicProgramming.knapsack(700, Experiment.getExperiments()));
 
 		System.out.println(" ============ Summary ============ ");
 
