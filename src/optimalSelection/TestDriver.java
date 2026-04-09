@@ -19,33 +19,46 @@ public class TestDriver {
 		ThreeGreedy greedy = new ThreeGreedy();
 		SubsetResult results = greedy.highestRating();
 		System.out.println(results.toString());
-		
+
 		System.out.println("----------------------------------------");
 
 		System.out.println("Test Lightest First");
 		System.out.println();
 		greedy = new ThreeGreedy();
-		 results = greedy.lightestWeight();
+		results = greedy.lightestWeight();
 		System.out.println(results.toString());
-	
+
 		System.out.println("----------------------------------------");
 
 		System.out.println("Test Rating To Weight Ratio First");
 		System.out.println();
 		greedy = new ThreeGreedy();
-		results = greedy.weightToRatingRatio();
+		results = greedy.ratingToWeightRatio();
 		System.out.println(results.toString());
-	
 
 		System.out.println(" ============ Test Brute Force ============ ");
 
 		ArrayList<SubsetResult> result = new BruteForce().findOptimal();
-		int x =1; 
-		for (SubsetResult s: result) {
+		int x = 1;
+		for (SubsetResult s : result) {
 			System.out.println("Result " + x + "\n" + s.toString());
-			x++; 
-			
+			x++;
+
 		}
+
+		System.out.println(" ============ Test Dynamic Programming ============ ");
+
+		Experiment[] experiment = Experiment.getExperiments();
+
+		int[] weight = new int[12];
+		int[] rating = new int[12];
+
+		for (int i = 0; i < experiment.length; i++) {
+			weight[i] = experiment[i].weight;
+			rating[i] = experiment[i].rating;
+		}
+
+		System.out.println(DynamicProgramming.knapsackRec(700, weight, rating,12));
 
 		System.out.println(" ============ Summary ============ ");
 
