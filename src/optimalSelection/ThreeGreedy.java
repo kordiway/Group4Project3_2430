@@ -11,7 +11,7 @@ import java.util.Arrays;
  * Sorts experiments array to match 3 different "greedy" approaches to the knapsack problem
  * and returns a subset that follows that approach without going over specified max weight
  * 
- * @author Korbin Ordiway
+ * @author Marcos Elgueta + Korbin Ordiway(Edited to eliminate code duplication)
  */
 public class ThreeGreedy {
 
