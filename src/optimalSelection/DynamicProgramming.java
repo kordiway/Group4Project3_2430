@@ -2,28 +2,20 @@ package optimalSelection;
 
 public class DynamicProgramming {
 
-	// Returns the maximum value that
-	// can be put in a knapsack of capacity W
-	static int knapsackRec(int W, int[] val, int[] wt, int n) {
-
-		// Base Case
-		if (n == 0 || W == 0)
-			return 0;
-
-		int pick = 0;
-
-		// Pick nth item if it does not exceed the capacity of knapsack
-		if (wt[n - 1] <= W)
-			pick = val[n - 1] + knapsackRec(W - wt[n - 1], val, wt, n - 1);
-
-		// Don't pick the nth item
-		int notPick = knapsackRec(W, val, wt, n - 1);
-
-		return Math.max(pick, notPick);
-	}
-
-	static int knapsack(int W, int[] val, int[] wt) {
-		int n = val.length;
-		return knapsackRec(W, val, wt, n);
-	}
+	  static int knapsack(int W, int[] val, int[] wt) {
+	        
+	        // Initializing dp array
+	        int[] dp = new int[W + 1];
+	        
+	        // Taking first i elements
+	        for (int i = 1; i <= wt.length; i++) {
+	            
+	            // Starting from back, so that we also have data of
+	            // previous computation of i-1 items
+	            for (int j = W; j >= wt[i - 1]; j--) {
+	                dp[j] = Math.max(dp[j], dp[j - wt[i - 1]] + val[i - 1]);
+	            }
+	        }
+	        return dp[W];
+	    }
 }
