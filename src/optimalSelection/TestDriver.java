@@ -47,7 +47,7 @@ public class TestDriver {
 		}
 
 		System.out.println(" ============ Test Dynamic Programming ============ ");
-
+		System.out.println();
 		Experiment[] experiment = Experiment.getExperiments();
 
 		int[] weight = new int[12];
@@ -58,16 +58,35 @@ public class TestDriver {
 			rating[i] = experiment[i].rating;
 		}
 
-		System.out.println(DynamicProgramming.knapsack(700, rating, weight));
+		System.out.println(
+				"Using Dynamic Programming the optimal Rating is: " + DynamicProgramming.knapsack(700, rating, weight));
+		System.out.println();
 
 		System.out.println(" ============ Summary ============ ");
+		System.out.println();
+		SubsetResult highestRating = new ThreeGreedy().highestRating();
+		SubsetResult lightestWeight = new ThreeGreedy().lightestWeight();
+		SubsetResult ratingToWeight = new ThreeGreedy().ratingToWeightRatio();
+		int optimal = new BruteForce().findOptimal().get(0).totalRating;
+		int dpOptimal = DynamicProgramming.knapsack(700, rating, weight);
 
-		// from assignment: Add output summarizing:Results of all 3 greedy strategies
-		// (Part 1)
-		// Result of the brute-force optimal (Part 2)
-		// A brief printed summary identifying which strategies matched the optimal and
-		// which did not
-		// Make the output easy to read and copy into your report.
+		System.out
+				.println("Brute force checked all 4096 subsets and found the best possible rating is " + optimal + ".");
+		System.out.println("Dynamic programming got the same answer: " + dpOptimal + ".");
+		System.out.println();
+		System.out.println("The greedy strategies did not match optimal:");
+		System.out.println("Highest Rating First:         " + highestRating.totalRating);
+		System.out.println("Lightest First:               " + lightestWeight.totalRating);
+		System.out.println("Rating to Weight Ratio First: " + ratingToWeight.totalRating);
+		System.out.println();
+		System.out.println();
+		System.out.println("""
+			    The greedy strategies fall short here because picking \
+			    the best looking option one step at a time does not account\n\
+			    for how the remaining weight gets used. Brute force and \
+			    dynamic programming both find the true optimal because\n\
+			    they consider the full picture. For this problem, being \
+			    thoughtful about the approach really does matter.""");
 
 	}
 

@@ -1,6 +1,7 @@
 package optimalSelection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -36,6 +37,12 @@ public class BruteForceTest {
 		for (int i = 0; i < results.size() - 1; i++) {
 			assertTrue(results.get(i).totalRating >= results.get(i + 1).totalRating);
 		}
+	}
+	
+	@Test
+	void resultsAreNotEmpty() {
+	    ArrayList<SubsetResult> results = new BruteForce().findOptimal();
+	    assertFalse(results.isEmpty(), "BruteForce should return at least one result");
 	}
 
 	@Test
