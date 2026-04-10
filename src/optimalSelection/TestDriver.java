@@ -62,6 +62,8 @@ public class TestDriver {
 				"Using Dynamic Programming the optimal Rating is: " + DynamicProgramming.knapsack(700, rating, weight));
 		System.out.println();
 
+		System.out.println(DynamicProgramming.knapsack(700, Experiment.getExperiments()));
+
 		System.out.println(" ============ Summary ============ ");
 		System.out.println();
 		SubsetResult highestRating = new ThreeGreedy().highestRating();
@@ -81,12 +83,12 @@ public class TestDriver {
 		System.out.println();
 		System.out.println();
 		System.out.println("""
-			    The greedy strategies fall short here because picking \
-			    the best looking option one step at a time does not account\n\
-			    for how the remaining weight gets used. Brute force and \
-			    dynamic programming both find the true optimal because\n\
-			    they consider the full picture. For this problem, being \
-			    thoughtful about the approach really does matter.""");
+				The greedy strategies fall short here because picking \
+				the best looking option one step at a time does not account\n\
+				for how the remaining weight gets used. Brute force and \
+				dynamic programming both find the true optimal because\n\
+				they consider the full picture. For this problem, being \
+				thoughtful about the approach really does matter.""");
 
 	}
 
